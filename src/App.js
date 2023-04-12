@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { useEffect } from "react";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
+import Testing from "./pages/Testing";
 
 function App() {
   const action = useNavigationType();
@@ -48,6 +49,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/auth/callback" element={<Testing />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/dashboard" element={<Dashboard />} />
     </Routes>

@@ -4,8 +4,10 @@ import styles from "./Login.module.css";
 import FacebookLogin from "react-facebook-login";
 import { useState } from "react";
 import Profile from "./Profile";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   // c646927d6ea94965fde505bbae64d1ae
@@ -13,6 +15,7 @@ const Login = () => {
 
   const responseFacebook = (response) => {
     console.log("facebook response", response);
+    navigate("/dashboard");
     // if (response.accessToken) {
     //   setLoggedIn(true);
     //   setUser(response);
@@ -30,20 +33,26 @@ const Login = () => {
 
       <div className={styles.welcomeBackPlease}>
         <FacebookLogin
-          // redirectUri="https://c0fc-2407-d000-d-e78f-b0b9-c482-d0e-5299.ngrok-free.app"
-          appId="620995509455708"
+          appId="6313418292042640"
+          autoLoad={false}
+          fields="name,email,picture"
+          onClick={componentCliked}
+          callback={responseFacebook}
+        />
+        {/* <FacebookLogin
+          appId="6313418292042640"
           autoLoad={false}
           fields="name,email,picture"
           callback={responseFacebook}
-          // onClick={componentCliked}
+          onClick={componentCliked}
           cssClass={styles.btnFacebook}
           icon="fa-facebook"
           render={(renderProps) => (
             <button onClick={renderProps.onClick}>
-              &nbsp; Login in with Facebook
+              &nbsp; New Login in with Facebook
             </button>
           )}
-        />
+        /> */}
       </div>
       <b className={styles.artificialIntelligenceDrivinContainer}>
         <p className={styles.resultsForThe}>
