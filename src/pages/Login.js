@@ -31,7 +31,7 @@ const Login = () => {
       <div className={styles.welcomeBackPlease}>
         <FacebookLogin
           // redirectUri="https://c0fc-2407-d000-d-e78f-b0b9-c482-d0e-5299.ngrok-free.app"
-          appId="139596095408301"
+          appId="620995509455708"
           autoLoad={false}
           fields="name,email,picture"
           callback={responseFacebook}
