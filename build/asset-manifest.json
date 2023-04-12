@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7bfcf723.css",
+    "main.js": "/static/js/main.5b419a03.js",
+    "static/media/instagram.png": "/static/media/instagram.abced1a115ac65261348.png",
+    "static/media/media.png": "/static/media/media.58dbc9a58009d16cadaa.png",
+    "static/media/tt.png": "/static/media/tt.b14728275a7e338c2e38.png",
+    "static/media/ChartMap.png": "/static/media/ChartMap.167cccd2b454b38f69da.png",
+    "static/media/bot-logo.jpeg": "/static/media/bot-logo.74b7db8f301f459fe3d7.jpeg",
+    "static/media/white_transparent.svg": "/static/media/white_transparent.9f3927a31c0d903490a7a34f0823a6c6.svg",
+    "static/media/Chart.svg": "/static/media/Chart.12e7a4a43e1463129c52b280f3d5420b.svg",
+    "static/media/Faqs.svg": "/static/media/Faqs.3306f6633efad371f98de67c84c25dfe.svg",
+    "static/media/messenger.svg": "/static/media/messenger.b744ba03e13b8b0eac50e1e357f66235.svg",
+    "static/media/Calender.svg": "/static/media/Calender.dce6688338ddda8a7021346e9b5b61a0.svg",
+    "static/media/ArrowLeft.svg": "/static/media/ArrowLeft.292ef81a36355fc617fb87f001983242.svg",
+    "index.html": "/index.html",
+    "static/media/barIcon.svg": "/static/media/barIcon.1cbc60354a6e4d43d2b7af0dac454c0c.svg",
+    "static/media/Messages.svg": "/static/media/Messages.f481a198f1fcc79bdac482c761a94d50.svg",
+    "static/media/More.svg": "/static/media/More.53cf81d8807dfb47bc251665837f7abc.svg",
+    "static/media/Seach.svg": "/static/media/Seach.c16994a2d64b9d79a661a59de1e93fb2.svg",
+    "static/media/Close.svg": "/static/media/Close.b4bb8e04c766da40a7df88517011dbb4.svg",
+    "static/media/Menu.svg": "/static/media/Menu.1e3337722d0a0ec12e5bb2f2cef28279.svg",
+    "static/media/Add.svg": "/static/media/Add.3e45b9f429f940652f26a6be6dbf7e58.svg",
+    "static/media/ArrowDown.svg": "/static/media/ArrowDown.9f66bdfd99bf11aa48b9a88bd679e011.svg",
+    "main.7bfcf723.css.map": "/static/css/main.7bfcf723.css.map",
+    "main.5b419a03.js.map": "/static/js/main.5b419a03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7bfcf723.css",
+    "static/js/main.5b419a03.js"
+  ]
+}
