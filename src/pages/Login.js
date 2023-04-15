@@ -5,21 +5,50 @@ import FacebookLogin from "react-facebook-login";
 import { useState } from "react";
 import Profile from "./Profile";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  facebookSignIn,
+  facebookSignUp,
+  facebookToken,
+} from "../redux/reducers/facebookSlice";
+import { userDetails } from "../redux/reducers/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
+  const { user, status } = useSelector((state) => state.user);
   // c646927d6ea94965fde505bbae64d1ae
   // 757731156080550
 
-  const responseFacebook = (response) => {
-    console.log("facebook response", response);
+  const responseFacebook = async (response) => {
+    dispatch(facebookToken(response?.accessToken));
+    dispatch(userDetails(response?.userID));
+    if (status !== "success") {
+      dispatch(
+        facebookSignUp({
+          facebook_access_token: response?.accessToken,
+          first_name: response?.name,
+          last_name: "",
+          user_fb_id: response?.userID,
+          user_type: "USER",
+          email: response?.email,
+          password: "",
+          timezone: "UTC",
+        })
+      );
+    } else {
+      dispatch(
+        facebookSignIn({
+          facebook_access_token: response?.accessToken,
+          user_fb_id: response?.userID,
+          user_type: "USER",
+          timezone: "UTC",
+        })
+      );
+    }
     navigate("/dashboard");
-    // if (response.accessToken) {
-    //   setLoggedIn(true);
-    //   setUser(response);
-    // }
   };
   const componentCliked = (response) => {
     console.warn(response);

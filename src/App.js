@@ -4,11 +4,11 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import Login from "./pages/Login";
 import { useEffect } from "react";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import Testing from "./pages/Testing";
+import Login from "./pages/Login";
 
 function App() {
   const action = useNavigationType();

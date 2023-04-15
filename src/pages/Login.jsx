@@ -1,23 +1,21 @@
 import styles from "../styles/Login.module.css";
 
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from "react-facebook-login";
 import { useState } from "react";
 import Profile from "./Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/reducers/authSlice";
 import { useEffect } from "react";
 
-
 const Login = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   // c646927d6ea94965fde505bbae64d1ae
   // 757731156080550
 
-  const { loading, error } = useSelector(state => state.auth);
+  const { loading, error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (loggedIn) {
@@ -25,16 +23,22 @@ const Login = () => {
         if (error !== null) {
           console.log(error);
         } else {
-          window.location.replace('/dashboard')
+          window.location.replace("/dashboard");
         }
       }
     }
-  }, [loading, error])
+  }, [loading, error]);
   const responseFacebook = (response) => {
     if (response.accessToken) {
       let userToSend = {
-        first_name: response.name?.indexOf(' ') > -1 ? response.name?.split(' ')[0] : response.name,
-        last_name: response.name?.indexOf(' ') > -1 ? response.name?.split(' ')[1] : response.name,
+        first_name:
+          response.name?.indexOf(" ") > -1
+            ? response.name?.split(" ")[0]
+            : response.name,
+        last_name:
+          response.name?.indexOf(" ") > -1
+            ? response.name?.split(" ")[1]
+            : response.name,
         email: response.email,
         picture: response.picture.data.url,
         user_fb_id: response.id,
@@ -45,20 +49,20 @@ const Login = () => {
         password: "123456",
         user_type: "user",
         plan: "free",
-        timezone: "UTC"
-      }
+        timezone: "UTC",
+      };
       // console.log(userToSend);
       // name, email, picture, id,  accessToken, userID, expiresIn, signedRequest
       // successful login
       setLoggedIn(true);
       setUser(response);
       // send data to backend
-      dispatch(login(userToSend))
+      dispatch(login(userToSend));
     }
-  }
+  };
   const componentCliked = (response) => {
     // clicked on component
-  }
+  };
 
   return (
     <div className={styles.desktop1}>
@@ -68,8 +72,7 @@ const Login = () => {
 
       <div className={styles.welcomeBackPlease}>
         <FacebookLogin
-
-          appId="757731156080550"
+          appId="6313418292042640"
           autoLoad={false}
           fields="name,email,picture"
           callback={responseFacebook}
@@ -77,14 +80,17 @@ const Login = () => {
           cssClass={styles.btnFacebook}
           icon="fa-facebook"
           render={(renderProps) => (
-            <button onClick={renderProps.onClick}>&nbsp; Login in with Facebook</button>
+            <button onClick={renderProps.onClick}>
+              &nbsp; Login in with Facebook
+            </button>
           )}
         />
-
       </div>
       <b className={styles.artificialIntelligenceDrivinContainer}>
-
-        <p className={styles.resultsForThe}>Equip your business with ChatGPT<br /> Get your chatbot under 30mins</p>
+        <p className={styles.resultsForThe}>
+          Equip your business with ChatGPT
+          <br /> Get your chatbot under 30mins
+        </p>
       </b>
       <div className={styles.blog}>Blog</div>
       <div className={styles.pricing}>Pricing</div>
@@ -96,10 +102,8 @@ const Login = () => {
         src="/screen.png"
       /> */}
 
-      {
-        loggedIn && <Profile user={user} />
-      }
-    </div >
+      {loggedIn && <Profile user={user} />}
+    </div>
   );
 };
 
