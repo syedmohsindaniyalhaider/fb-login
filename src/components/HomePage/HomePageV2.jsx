@@ -12,6 +12,9 @@ import ChartMapIcon from "../../assets/images/svg/ChartMap.png";
 import "react-circular-progressbar/dist/styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { userDetails } from "../../redux/reducers/userSlice";
+
+// this file
+
 export default function HomePageV2({ changeDashboardTab }) {
   const dispatch = useDispatch();
   const { fbUserID } = useSelector((state) => state.fb);

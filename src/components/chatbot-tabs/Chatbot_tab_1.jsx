@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import addIcon from "../../assets/iconadd.png";
 import { allChatBots } from "../../redux/reducers/chatbotSlice";
 
+// this file
+
 const Chatbot_tab_1 = ({ changeChatBotTab }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const {} = useSelector((state) => state.chatbot);
+  //   const {} = useSelector((state) => state.chatbot);
   useEffect(() => {
     const data = {
       userID: user?.user_id,

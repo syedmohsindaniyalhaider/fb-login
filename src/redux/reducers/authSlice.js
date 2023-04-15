@@ -5,7 +5,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-//   });
+
 const options = {
     'Content-Type': 'application/json',
 };

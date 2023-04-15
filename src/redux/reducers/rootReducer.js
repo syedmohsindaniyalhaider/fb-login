@@ -4,6 +4,8 @@ import facebookSlice from "./facebookSlice";
 import userSlice from "./userSlice";
 import chatbotSlice from "./chatbotSlice";
 
+// this file
+
 const rootReducer = combineReducers({
   auth: authSlice,
   fb: facebookSlice,

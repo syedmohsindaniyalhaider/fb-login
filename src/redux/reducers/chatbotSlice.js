@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-//   });
+// this files
+
 const options = {
   "x-access-token": "skip_validation_for_admin",
   "Content-Type": "application/json",
