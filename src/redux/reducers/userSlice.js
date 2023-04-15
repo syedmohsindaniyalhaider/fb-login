@@ -12,10 +12,7 @@ export const userDetails = createAsyncThunk("user/me", async (userID) => {
   const response = await axios.get(
     `https://api.chatsimple.ai/v0/users/${userID}`,
     {
-      headers: {
-        "x-access-token": "skip_validation_for_admin",
-        "Content-Type": "application/json",
-      },
+      headers: options,
     }
   );
   return response.data;

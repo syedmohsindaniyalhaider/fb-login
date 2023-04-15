@@ -1,13 +1,33 @@
 import { useDispatch, useSelector } from "react-redux";
 import addIcon from "../../assets/iconadd.png";
-import { allChatBots } from "../../redux/reducers/chatbotSlice";
+import { allChatBots, createChatBot } from "../../redux/reducers/chatbotSlice";
+import { useEffect, useState } from "react";
 
 // this file
 
 const Chatbot_tab_1 = ({ changeChatBotTab }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  //   const {} = useSelector((state) => state.chatbot);
+  const { chatBots } = useSelector((state) => state.chatbot); // this has all the chat-bots list for a user that is logged in
+
+  const [chatbotTitle, setChatbotTitle] = useState("");
+
+  const chatbotHandler = () => {
+    // for chat bot creation
+    if (!!chatbotTitle) {
+      const data = {
+        userID: user?.user_id,
+        chatbotDetail: {
+          timezone: "UTC",
+          platforms: { first: "messenger" },
+          chatbot_title: chatbotTitle,
+        },
+        chatbotID: "098765",
+      };
+      dispatch(createChatBot(data));
+    }
+  };
+
   useEffect(() => {
     const data = {
       userID: user?.user_id,
@@ -17,6 +37,8 @@ const Chatbot_tab_1 = ({ changeChatBotTab }) => {
     };
     dispatch(allChatBots(data));
   }, [user]);
+
+  console.log("chatBots", chatBots);
 
   return (
     <div className="dashboard_tab chatbot_tab">
@@ -29,6 +51,22 @@ const Chatbot_tab_1 = ({ changeChatBotTab }) => {
         >
           <img src={addIcon} alt="add" />
           <p>Build</p>
+        </div>
+        <div>
+          <input
+            value={chatbotTitle}
+            onChange={(e) => setChatbotTitle(e.target.value)}
+            placeholder="Enter chatbot title"
+          />
+          <button
+            style={{
+              backgroundColor: "ButtonShadow",
+              padding: "4px",
+            }}
+            onClick={chatbotHandler}
+          >
+            Submit
+          </button>
         </div>
         <div className="chatbot__tab1__info">
           <div className="chatbot__tab1__elevations">
