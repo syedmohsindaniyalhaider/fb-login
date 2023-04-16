@@ -15,11 +15,11 @@ import { BrowserRouter } from "react-router-dom";
 // import CssBaseline from "@mui/material"
 // import CssBaseline from "@mui/material"
 
-
-import "./global.css"
+import "./global.css";
 import { Provider } from "react-redux";
-import store from "./redux/Store";
+import store, { persistor } from "./redux/Store";
 // import CssBaseline from "@mui/material/CssBaseline";
+import { PersistGate } from "redux-persist/integration/react";
 
 // const muiTheme = createTheme();
 
@@ -29,12 +29,14 @@ const root = createRoot(container);
 root.render(
   <BrowserRouter>
     {/* <StyledEngineProvider injectFirst> */}
-      {/* <ThemeProvider theme={muiTheme}> */}
-        {/* <CssBaseline /> */}
-        <Provider store={store}>
-          <App />
-        </Provider>
-      {/* </ThemeProvider> */}
+    {/* <ThemeProvider theme={muiTheme}> */}
+    {/* <CssBaseline /> */}
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+    {/* </ThemeProvider> */}
     {/* </StyledEngineProvider> */}
   </BrowserRouter>
 );
